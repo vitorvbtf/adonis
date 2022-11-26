@@ -5,7 +5,7 @@ import UsuarioFilmeValidator from "App/Validators/UsuarioFilmeValidator"
 
 export default class UsuarioFilmesController {
     index() {
-        return UsuarioFilme.all()
+        return UsuarioFilme.query()
     }
 
    async store({request}) {

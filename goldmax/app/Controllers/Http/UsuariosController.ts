@@ -5,7 +5,7 @@ import UsuarioValidator from "App/Validators/UsuarioValidator"
 
 export default class UsuariosController {
     index() {
-        return Usuario.all()
+        return Usuario.query()
     }
 
    async store({request}) {

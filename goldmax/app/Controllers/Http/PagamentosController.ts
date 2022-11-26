@@ -5,7 +5,7 @@ import PagamentoValidator from "App/Validators/PagamentoValidator"
 
 export default class PagamentosController {
     index() {
-        return Pagamento.all()
+        return Pagamento.query().preload("plano")
     }
 
    async store({request}) {

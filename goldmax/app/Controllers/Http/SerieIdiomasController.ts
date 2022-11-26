@@ -5,7 +5,7 @@ import SerieIdiomaValidator from "App/Validators/SerieIdiomaValidator"
 
 export default class SerieIdiomasController {
     index() {
-        return SerieIdioma.all()
+        return SerieIdioma.query()
     }
 
    async store({request}) {

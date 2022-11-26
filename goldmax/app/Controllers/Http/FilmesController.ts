@@ -5,7 +5,7 @@ import FilmeValidator from "App/Validators/FilmeValidator"
 
 export default class FilmesController {
     index() {
-        return Filme.all()
+        return Filme.query().preload("genero").preload("idiomas").preload("usuarios")
     }
 
    async store({request}) {

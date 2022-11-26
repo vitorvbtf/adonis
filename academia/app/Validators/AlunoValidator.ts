@@ -26,10 +26,7 @@ export default class AlunoValidator {
   public schema = schema.create({
     nome: schema.string(),
 
-    cpf: schema.number([
-      rules.minLength(15),
-      rules.maxLength(15)
-    ]),
+    cpf: schema.number(),
 
     statuId: schema.number([
       rules.exists({table: 'statu', column:'id'})
@@ -40,15 +37,9 @@ export default class AlunoValidator {
       rules.maxLength(20)
     ]),
 
-    cep: schema.number.optional([
-      rules.minLength(8),
-      rules.maxLength(8)
-    ]),
+    cep: schema.number.optional(),
 
-    telefone: schema.number.optional([
-      rules.minLength(11),
-      rules.maxLength(11)
-    ]),
+    telefone: schema.number.optional(),
 
     email: schema.string.optional({}, [
       rules.email(),

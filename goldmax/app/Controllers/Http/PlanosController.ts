@@ -5,7 +5,7 @@ import PlanoValidator from "App/Validators/PlanoValidator"
 
 export default class PlanosController {
     index() {
-        return Plano.all()
+        return Plano.query().preload("pagamentos")
     }
 
    async store({request}) {

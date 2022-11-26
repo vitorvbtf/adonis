@@ -5,7 +5,7 @@ import GeneroValidator from "App/Validators/GeneroValidator"
 
 export default class GenerosController {
     index() {
-        return Genero.all()
+        return Genero.query().preload("filmes").preload("series")
     }
 
    async store({request}) {

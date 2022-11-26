@@ -1,5 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import Idioma from './Idioma'
+import Usuario from './Usuario'
+import Genero from './Genero'
 
 export default class Serie extends BaseModel {
   @column({ isPrimary: true })
@@ -25,4 +28,13 @@ export default class Serie extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @belongsTo(()=> Genero)
+  public genero: BelongsTo<typeof Genero>
+
+  @manyToMany(()=> Idioma,{pivotTable:'serie_idiomas'})
+  public idiomas: ManyToMany<typeof Idioma>
+
+  @manyToMany(()=> Usuario,{pivotTable:'usuario_series'})
+  public usuarios: ManyToMany<typeof Usuario>
 }

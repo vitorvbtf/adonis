@@ -5,7 +5,7 @@ import SerieValidator from "App/Validators/SerieValidator"
 
 export default class SeriesController {
     index() {
-        return Serie.all()
+        return Serie.query().preload("genero").preload("idiomas").preload("usuarios")
     }
 
    async store({request}) {

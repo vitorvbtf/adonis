@@ -5,7 +5,7 @@ import FilmeIdiomaValidator from "App/Validators/FilmeIdiomaValidator"
 
 export default class FilmeIdiomasController {
     index() {
-        return FilmeIdioma.all()
+        return FilmeIdioma.query()
     }
 
    async store({request}) {

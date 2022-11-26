@@ -5,7 +5,7 @@ import IdiomaValidator from "App/Validators/IdiomaValidator"
 
 export default class IdiomasController {
     index() {
-        return Idioma.all()
+        return Idioma.query().preload("filmes").preload("series")
     }
 
    async store({request}) {
